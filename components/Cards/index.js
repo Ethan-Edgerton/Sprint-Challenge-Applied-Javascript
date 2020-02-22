@@ -53,7 +53,8 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 
 function createArticle (data) {
 
-    //Elements
+
+    //Elements 
     const card = document.createElement(`div`)
     const headline = document.createElement(`div`)
     const author = document.createElement(`div`)
@@ -83,3 +84,7 @@ function createArticle (data) {
 
    return card;
 }
+
+// function test () {
+
+// }
