@@ -17,3 +17,69 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+//const articleArray = ['bootstrap', 'javascript', 'jquery', 'node', 'technology'];
+
+const cardContainer = document.querySelector(`.cards-container`)
+
+
+axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+    .then(response => {
+        const bootstrapArticle = response.data.articles.bootstrap;
+         bootstrapArticle.forEach(article => {
+             cardContainer.appendChild(createArticle(article))
+             console.log(article)
+        });
+        const javascriptArticle = response.data.articles.javascript
+            javascriptArticle.forEach(article => {
+                cardContainer.appendChild(createArticle(article))
+            })
+        const jqueryArticle = response.data.articles.jquery
+            jqueryArticle.forEach(article => {
+                cardContainer.appendChild(createArticle(article))
+            })
+        const nodeArticle = response.data.articles.node
+            nodeArticle.forEach(article => {
+                cardContainer.appendChild(createArticle(article))
+            })
+        const technologyArticle = response.data.articles.technology
+            technologyArticle.forEach(article => {
+                cardContainer.appendChild(createArticle(article))
+            })
+    })
+
+
+
+
+function createArticle (data) {
+
+    //Elements
+    const card = document.createElement(`div`)
+    const headline = document.createElement(`div`)
+    const author = document.createElement(`div`)
+    const imgContainer = document.createElement(`div`)
+    const image = document.createElement(`img`)
+    const authorName = document.createElement(`span`)
+
+    //Structure
+    card.appendChild(headline)
+    card.appendChild(author)
+    author.appendChild(imgContainer)
+    imgContainer.appendChild(authorName)
+    imgContainer.appendChild(image)
+
+
+    //classes attr src
+    card.classList.add(`card`)
+    headline.classList.add(`headline`)
+    author.classList.add(`author`)
+    imgContainer.classList.add(`img-container`)
+    image.src = data.authorPhoto;
+
+   // Content
+   headline.textContent = data.headline;
+   authorName.textContent = `By ${data.authorName}`
+   
+
+   return card;
+}
