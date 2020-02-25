@@ -9,7 +9,6 @@
 //    <div class="tab">topic here</div>
 
  const topicsContainer = document.querySelector(`.topics`) 
-
  
      axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
      .then(response => {
@@ -20,7 +19,6 @@
          }) 
 
      }) 
-
 
  function Tab (response) {
      

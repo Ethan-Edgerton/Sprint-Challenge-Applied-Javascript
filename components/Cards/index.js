@@ -22,7 +22,6 @@
 
 const cardContainer = document.querySelector(`.cards-container`)
 
-
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     .then(response => {
         const bootstrapArticle = response.data.articles.bootstrap;
@@ -48,11 +47,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
             })
     })
 
-
-
-
 function createArticle (data) {
-
 
     //Elements 
     const card = document.createElement(`div`)
@@ -69,7 +64,6 @@ function createArticle (data) {
     imgContainer.appendChild(authorName)
     imgContainer.appendChild(image)
 
-
     //classes attr src
     card.classList.add(`card`)
     headline.classList.add(`headline`)
@@ -80,11 +74,6 @@ function createArticle (data) {
    // Content
    headline.textContent = data.headline;
    authorName.textContent = `By ${data.authorName}`
-   
 
    return card;
 }
-
-// function test () {
-
-// }

@@ -9,10 +9,11 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
+
 const headerContainer = document.querySelector(`.header-container`)
 headerContainer.appendChild(Header())
 
-function Header(data) {
+function Header() {
 
 //Elements
 const header = document.createElement(`div`)
@@ -30,10 +31,22 @@ header.classList.add(`header`)
 dateSpan.classList.add(`date`)
 tempSpan.classList.add(`temp`)
 
-//SetContent
-dateSpan.textContent = `SMARCH 28, 2019` //data.date
-h1.textContent = `Lambda Times` //data.header
-tempSpan.textContent = `98°` //data.temp
+//SetContent hard code
+//dateSpan.textContent = `SMARCH 28, 2019`
+//h1.textContent = `Lambda Times`
+//tempSpan.textContent = `98°`
+
+const headerContent = {
+    temp: `98°`,
+    header: `Lambda Times`,
+    date: `SMARCH 28, 2019`
+}
+
+//SetContent object keys
+dateSpan.textContent = headerContent.date
+h1.textContent = headerContent.header
+tempSpan.textContent = headerContent.temp
+
 
 return header;
 
